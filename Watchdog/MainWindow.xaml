@@ -6,14 +6,20 @@
         xmlns:local="clr-namespace:Watchdog"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <Button Content="Test" Command="{Binding ButtonClickCommand}" Grid.Row="1"/>
+        <TextBlock Text="偵測頻率" Grid.Row="1" Margin="3"/>
+        <TextBox Text="{Binding Frequence}" Grid.Row="2"  IsEnabled="{Binding NotRunning}" Margin="3"/>
+        <TextBlock Text="搜尋關鍵字 (透過分割定義多組)" Grid.Row="3" Margin="3"/>
+        <TextBox Text="{Binding Keyword}" Grid.Row="4"  IsEnabled="{Binding NotRunning}" Margin="3"/>
+        <Button Content="{Binding IsRunningContent}" Command="{Binding ButtonClickCommand}"  Grid.Row="5" Margin="3"/>
     </Grid>
 </Window>

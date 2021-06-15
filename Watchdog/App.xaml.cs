@@ -5,6 +5,8 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using System.Windows;
 
 namespace Watchdog
@@ -23,7 +25,6 @@ namespace Watchdog
                 Message = message,
                 Type = type,
             });
-
         }
     }
 }
