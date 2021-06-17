@@ -81,6 +81,16 @@ namespace Watchdog
             }
         }
 
+        public RelayCommand WindowsClosingCommand
+        {
+            get { return new RelayCommand(WindowClosingCommandAction); }
+        }
+
+        private void WindowClosingCommandAction(object obj)
+        {
+            Environment.Exit(0);
+        }
+
         /// <summary>
         /// 搜尋關鍵字
         /// </summary>
@@ -169,8 +179,13 @@ namespace Watchdog
                 doc.Load(sgmlReader);
 
                 var allATag = doc.GetElementsByTagName("a");
+                string[] keywords = null;
+                if (Keyword.Substring(Keyword.Length - 1, 1).Equals(";"))
+                    keywords = Keyword.Substring(0, Keyword.Length - 1).Split(';');
+                else
+                    keywords = Keyword.Split(';');
 
-                var keywords = Keyword.Split(';');
+
                 foreach (var item in allATag) 
                 {
                     var currentText = ((XmlNode)item).InnerText;
